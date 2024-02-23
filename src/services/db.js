@@ -2,7 +2,7 @@
 const { Pool } = require('pg');
 
 // URL de conexión a tu base de datos PostgreSQL
-const connectionString = 'postgresql://sso_dev_admin:123456@database-vortexbird.c8dq5oiucrly.us-east-1.rds.amazonaws.com:5432/sso_dev';
+const connectionString = 'postgresql://username:password@localhost:5432/database';
 
 // Función para conectar a la base de datos
 async function connectToDatabase() {
