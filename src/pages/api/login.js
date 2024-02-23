@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { email, password } = req.body;
-    
+
     // Validar que se proporcionen el email y la contraseña
     if (!email || !password) {
       return res.status(400).json({ error: 'Se requieren email y contraseña' });
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     try {
       const db = await connectToDatabase();
       const collection = db.collection('sso_user');
-      
+
       // Buscar el usuario en la base de datos por email
       const user = await collection.findOne({ email });
 
