@@ -1,4 +1,4 @@
-// En el archivo db.js en el directorio services
+// Archivo donde se realiza la coneccion a la base de datos.
 const { Pool } = require('pg');
 
 // URL de conexión a tu base de datos PostgreSQL
