@@ -2,16 +2,20 @@
 
 import { useState } from 'react';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import FormRegist from '../sub/FormRegist';
 
-// URL de la imagen
 const imageUrl = 'https://via.placeholder.com/150';
+
+interface RegistroPageProps {
+    onClose: () => void;
+}
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string>('');
-
     const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showRegistForm, setShowRegistForm] = useState<boolean>(false); // Estado para mostrar el formulario de registro
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -44,7 +48,7 @@ const LoginForm = () => {
 
     return (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-96">
+            <div className="bg-white p-8 rounded-2xl shadow-lg w-96">
                 <div className="flex justify-center mb-4">
                     <img src={imageUrl} alt="Logo" className="w-24 h-24 rounded-full" />
                 </div>
@@ -83,8 +87,12 @@ const LoginForm = () => {
                     </div>
                     {error && <div className="text-red-500 mb-4">{error}</div>}
                     <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full">Iniciar sesión</button>
+                    {/* Botón para abrir el formulario de registro */}
+                    <button type="button" className="mt-2 bg-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-gray-400 w-full" onClick={() => setShowRegistForm(true)}>Registrarse</button>
                 </form>
             </div>
+            {/* Modal para el formulario de registro */}
+            {showRegistForm && <FormRegist onClose={() => setShowRegistForm(false)} />}
         </div>
     );
 };
