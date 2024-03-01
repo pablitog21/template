@@ -40,7 +40,7 @@ const LoginForm = () => {
 
             // Aquí puedes redirigir al usuario a otra página o realizar alguna otra acción después del inicio de sesión exitoso
             // Por ejemplo:
-            // window.location.href = '/dashboard';
+            window.location.href = '/dashboard';
         } catch (error: any) {
             setError('No se pudo hacer la petición al servidor. Por favor, intenta de nuevo más tarde.');
         }
