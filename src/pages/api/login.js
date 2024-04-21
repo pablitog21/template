@@ -29,6 +29,7 @@ export default async function handler(req, res) {
         return res.status(401).json({ error: 'Credenciales inválidas' });
       }
 
+      
       // En este punto, el inicio de sesión ha tenido éxito
       // Aquí podrías generar un token de sesión, establecer cookies, etc.
       return res.status(200).json({ message: 'Inicio de sesión exitoso' });
